@@ -60,6 +60,10 @@
   address: "", 
   logo: none, 
   abstract: none,
+  subject: "",
+  degree: "Bachelor of Technology",
+  stream: "Information Technology",
+  guide: (),
   body
   ) = {
   // Set the document's basic properties.
@@ -71,7 +75,7 @@
     margin: (
       top: 1in,
       bottom: 1in,
-      left: 1.5in,
+      left: 1in,
       right: 1in
     )
   )
@@ -79,11 +83,26 @@
 
   set par(justify: true)
   // Title row.
-  v(.25fr)
+  v(.10fr)
   align(center)[
-     #text(30pt, weight: 900, smallcaps(title))
-     \ \ #text(14pt, weight: 200, subtitle)
+    #text(12pt, strong(smallcaps(subject)))
+    \ #text(12pt, strong(smallcaps("Project Report")))
+    \ \ #text(30pt, weight: 900, smallcaps(title))
+    \ #text(14pt, weight: 200, subtitle)
+    \ \ #emph(text(12pt, weight: 200, "Submitted in fullfillment of"))
+    \ #emph(text(12pt, weight: 200, "he requirements for the paper"))
+    \ #emph(text(12pt, weight: 200, subject))
   ]
+
+  // Degree Part
+  align(center)[
+    #text(12pt, strong(degree))
+    \ #text(12pt, strong("in"))
+    \ #text(12pt, strong(stream))
+    #v(1cm)
+    #text(12pt, strong("Submitted By,"))
+  ]
+  
   pad(
     top: 2em,
     for i in range(calc.ceil(authors.len() / 3)) {
@@ -95,14 +114,14 @@
         gutter: 12pt,
         ..slice.map(author => align(center, {
           text(12pt, strong(author.name))
+          if "rollno" in author [
+            \ #author.rollno
+          ]
+          if "regno" in author [
+            \ #author.regno
+          ]
           if "department" in author [
             \ #author.department
-          ]
-          if "organization" in author [
-            \ #author.organization
-          ]
-          if "location" in author [
-            \ #author.location
           ]
           if "email" in author [
             \ #link("mailto:" + author.email)
@@ -115,6 +134,14 @@
       }
     }
   )
+  v(1cm)
+  align(center)[
+    #text(12pt, "Under the guidance of,")
+    \ #text(14pt, smallcaps(strong(guide.name)))
+    \ #text(12pt, smallcaps(guide.designation+","))
+    \ #text(12pt, smallcaps(guide.department))
+  ]
+  
   v(0.75fr)
   if logo != none {
     align(center)[
@@ -130,7 +157,12 @@
       \ #text(address)
     ]
   }
-
+  set page(margin: (
+    top: 1in,
+    bottom: 1in,
+    left: 1.5in,
+    right: 1in
+  ))
   if abstract != none {
     pagebreak()
     align(right)[

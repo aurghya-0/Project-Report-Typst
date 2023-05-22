@@ -6,22 +6,32 @@
   title: "Sample Project Report",
   subtitle: "A sample project on this & that",
   abstract: lorem(50),
+  subject: "PROJ-CS881 PROJECT - III",
+  guide: (
+    name: "Mr. Aurghyadip Kundu",
+    designation: "Assistant Professor",
+    department: "Information Technology"),
   authors: (
-    (name: "Aurghyadip Kundu", 
-    department: "Information Technology",
-    email: "email@example.com"),
+    (name: "Jane Doe", 
+    department: "Computer Science",
+    rollno: "123456789",
+    regno: "1000000010 of 2021-22"),
     (name: "John Doe", 
-    department: "Information Technology",
-    email: "email@example.com"),
+    department: "Computer Science",
+    rollno: "123456789",
+    regno: "1000000010 of 2021-22"),
     (name: "Jason Doe",
-    department: "Information Technology",
-    email: "email@example.com"),
+    department: "Computer Science",
+    rollno: "123456789",
+    regno: "1000000010 of 2021-22"),
     (name: "Jimmy Doe",
-    department: "Information Technology",
-    email: "email@example.com"),
+    department: "Computer Science",
+    rollno: "123456789",
+    regno: "1000000010 of 2021-22"),
     (name: "Timmy Doe",
-    department: "Information Technology",
-    email: "email@example.com"),
+    department: "Computer Science",
+    rollno: "123456789",
+    regno: "1000000010 of 2021-22"),
   ),
   department: "Department of Information Technology",
   institute: "Calcutta Institute of Engineering and Management",
@@ -61,3 +71,9 @@
 
 ===== Level 5 Heading
 #lorem(100)
+
+#box(
+  stroke: 1pt,
+  inset: 10pt,
+  lorem(10)
+)
